@@ -22,12 +22,12 @@ const Page = db.define("page", {
   },
 });
 
-Page.beforeValidate((page) => {
+Page.beforeValidate((instance) => {
   /*
    * Generate slug
    */
-  if (!page.slug) {
-    page.slug = page.title.replace(/\s/g, "_").replace(/\W/g, "").toLowerCase();
+  if (!instance.slug) {
+    instance.slug = instance.title.replace(/\s/g, "_").replace(/\W/g, "").toLowerCase();
   }
 });
 
